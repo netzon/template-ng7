@@ -1,0 +1,9 @@
+
+<div class="grid-container">
+  <div class="grid-item" *ngFor="let item of participants">
+    <div class="grid-content">
+      <div>{{item.name}}</div>
+      <img [src]="item.img" alt="">
+    </div>
+  </div>
+</div>
