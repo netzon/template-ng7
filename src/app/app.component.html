@@ -1,9 +1,65 @@
 <div class="main-container">
   <div class="main-grid">
-    <app-main-grid #gridElement [participants]="participants" (onGridResize)="onGridResize($event)"></app-main-grid>
+    <app-main-grid #gridElement [participants]="participantsToRender" (onGridResize)="onGridResize($event)"></app-main-grid>
   </div>
 
   <div class="main-controls">
     <app-main-controls></app-main-controls>
+  </div>
+
+  <div class="config-panel" *ngIf="showConfig">
+    <div class="config-content">
+      <div>Configuration</div>
+
+      <div>
+        <div class="participants-input">
+          <div>
+            # of participants
+          </div>
+
+          <div>
+            <input [(ngModel)]="participantsCount" type="number">
+          </div>
+
+          <button (click)="setSampleParticipants()">SET</button>
+        </div>
+
+        <div class="participants-table">
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Current actor</th>
+              <th>Screen sharing</th>
+            </tr>
+            <tr *ngFor="let item of participants; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{item.name}}</td>
+              <td (click)="clickCurrentActor(i)">{{item.currentActor ? '&#10003;' : ''}}</td>
+              <td (click)="clickScreenShare(i)">{{item.screenSharing ? '&#10003;' : ''}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="configs" (click)="toggleConfig()">
+    <button>configs</button>
+  </div>
+
+  <div class="arrows">
+    <div class="arrow-content">
+      <div class="current-page">
+        Current page: {{this.currentPageIndex + 1}}
+      </div>
+
+      <div class="arrow-left">
+        <button (click)="onClickLeft()">&#10094;</button>
+      </div>
+      <div class="arrow-right">
+        <button (click)="onClickRight()">&#10095;</button>
+      </div>
+    </div>
   </div>
 </div>

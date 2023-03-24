@@ -15,3 +15,54 @@
 .main-controls {
   height: var(--controls-height);
 }
+
+.configs {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+}
+
+.arrows {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+}
+
+.arrow-content {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-left, .arrow-right {
+  margin-left: 12px;
+}
+
+.config-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.config-content {
+  width: 400px;
+  height: calc(100vh - var(--controls-height));
+  overflow: auto;
+  background-color: white;
+  border-right: 1px solid #e6e6e6;
+}
+
+.participants-table {
+  padding: 0 8px;
+  margin-top: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
