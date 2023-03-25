@@ -1,0 +1,27 @@
+:host {
+  --minmax: 300px
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--minmax), 1fr));
+  grid-gap: 10px;
+  height: 100%;
+  overflow: auto;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+.grid-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+}
+.grid-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
